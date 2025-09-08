@@ -344,11 +344,11 @@ namespace PlayerLives.Features
 
                 foreach (EBodyPart bodyPart in Enum.GetValues(typeof(EBodyPart)))
                 {
-                    if (healthController.GetBodyPartHealth(bodyPart).Current < 1)
-                    {
-                        // Remove bleed from destroyed body parts
-                        healthController.method_16(bodyPart);
+                    // Remove bleed from all body parts
+                    healthController.method_16(bodyPart);
 
+                    if (healthController.GetBodyPartHealth(bodyPart).Current < 1)
+                    {   
                         if (Settings.RESTORE_DESTROYED_BODY_PARTS.Value)
                         {
                             if (Settings.RESTORE_ONLY_HEAD_AND_CHEST.Value)
