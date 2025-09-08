@@ -67,8 +67,15 @@ namespace PlayerLives.Features
                     }
                 }
 
+                _playerInCriticalState.TryGetValue(playerId, out bool inCritical);
+
+                if (Plugin.Cooldown > 0 && !inCritical)
+                {
+                    Plugin.Cooldown -= Time.deltaTime;
+                }
+
                 // Check for manual revival key press when in critical state
-                if (_playerInCriticalState.TryGetValue(playerId, out bool inCritical) && inCritical)
+                if (inCritical)
                 {
                     // Force critical state 
                     PlayerClient.SetEmptyHands(null);

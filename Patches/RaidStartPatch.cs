@@ -23,6 +23,7 @@ namespace PlayerLives.Patches
 
             // Raid start, reset number of lives 
             Plugin.CurrentLives = Settings.PLAYER_LIVES.Value;
+            Plugin.Cooldown = Settings.REVIVE_ON_CD_AT_THE_BEGINNING.Value ? Settings.REVIVE_COOLDOWN.Value : 0;
             Plugin.GaveUp = false;
             Plugin.shownDeathNotification = false;
 

@@ -13,6 +13,8 @@ namespace PlayerLives.Helpers
         public static ConfigEntry<bool> TESTING;
         public static ConfigEntry<bool> REQUIRE_HEAD_HEALTH;
         public static ConfigEntry<int> PLAYER_LIVES;
+        public static ConfigEntry<float> REVIVE_COOLDOWN;
+        public static ConfigEntry<bool> REVIVE_ON_CD_AT_THE_BEGINNING;
         public static ConfigEntry<int> RESTORE_DESTROYED_BODY_PARTS_HEALING;
         public static ConfigEntry<string> REQUIRE_BUFF_TYPE;
         public static ConfigEntry<string> REQUIRE_STIM;
@@ -101,6 +103,21 @@ namespace PlayerLives.Helpers
                     new AcceptableValueRange<int>(1, 100)
                 )
             );
+
+            REVIVE_COOLDOWN = config.Bind(
+                "Revive Conditions",
+                "Cooldown",
+                0f,
+                "How often player can be revived in seconds"
+            );
+
+            REVIVE_ON_CD_AT_THE_BEGINNING = config.Bind(
+                "Revive Conditions",
+                "Enable CD before first revive",
+                false,
+                "you start a raid with revive on cooldown"
+            );
+
 
             TESTING = config.Bind(
                 "Development",

@@ -101,7 +101,7 @@ namespace PlayerLives.Patches
                     }
 
                 // Check if player has remaining lives
-                if (Plugin.CurrentLives > 0 || Settings.TESTING.Value)
+                if (Plugin.CurrentLives > 0 && Plugin.Cooldown <= 0 || Settings.TESTING.Value)
                 {
                     Plugin.LogSource.LogInfo("DEATH PREVENTED: Setting player to critical state instead of death");
 
@@ -109,6 +109,7 @@ namespace PlayerLives.Patches
                     RevivalFeatures.SetPlayerCriticalState(player, true);
 
                     Plugin.CurrentLives--;
+                    Plugin.Cooldown = Settings.REVIVE_COOLDOWN.Value;
 
                     Plugin.LogSource.LogInfo($"DEATH PREVENTED: Player lives left {Plugin.CurrentLives}");
 
