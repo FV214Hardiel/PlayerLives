@@ -9,6 +9,7 @@ namespace PlayerLives.Helpers
         public static ConfigEntry<KeyCode> REVIVAL_KEY;
         public static ConfigEntry<KeyCode> GIVE_UP_KEY;
         public static ConfigEntry<bool> RESTORE_DESTROYED_BODY_PARTS;
+        public static ConfigEntry<bool> RESTORE_ONLY_HEAD_AND_CHEST;
         public static ConfigEntry<bool> TESTING;
         public static ConfigEntry<bool> REQUIRE_HEAD_HEALTH;
         public static ConfigEntry<int> PLAYER_LIVES;
@@ -82,6 +83,13 @@ namespace PlayerLives.Helpers
                 "Restore destroyed body parts",
                 true,
                "Blackened body parts are restored%"
+            );
+
+            RESTORE_ONLY_HEAD_AND_CHEST = config.Bind(
+                "If restore is enabled",
+                "Restore ONLY head and chest",
+                true,
+               "Blackened head and chest are restored%"
             );
 
             RESTORE_DESTROYED_BODY_PARTS_HEALING = config.Bind(

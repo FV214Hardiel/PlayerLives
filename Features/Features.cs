@@ -351,6 +351,14 @@ namespace PlayerLives.Features
 
                         if (Settings.RESTORE_DESTROYED_BODY_PARTS.Value)
                         {
+                            if (Settings.RESTORE_ONLY_HEAD_AND_CHEST.Value)
+                            {
+                                if (bodyPart != EBodyPart.Head || bodyPart != EBodyPart.Chest)
+                                {
+                                    continue;
+                                }
+                            }
+
                             // from healthController.FullRestoreBodyPart(bodyPart);
                             // take health down to 25%
                             ActiveHealthController.BodyPartState bodyPartState = healthController.Dictionary_0[bodyPart];
