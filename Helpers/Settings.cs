@@ -86,9 +86,9 @@ namespace PlayerLives.Helpers
             );
 
             RESTORE_ONLY_HEAD_AND_CHEST = config.Bind(
-                "If restore is enabled",
-                "Restore ONLY head and chest",
-                true,
+                "On Revive",
+                "If restoring body parts is enabled restore ONLY head and chest",
+                false,
                "Blackened head and chest are restored%"
             );
 
