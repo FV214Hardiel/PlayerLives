@@ -189,7 +189,7 @@ namespace PlayerLives.Features
                 player.ActiveHealthController.DoStun(1f, 1f);
 
                 // Is alive player can't open menu
-                // player.ActiveHealthController.IsAlive = false;
+                player.ActiveHealthController.IsAlive = false;
 
             }
             catch (Exception ex)
@@ -274,6 +274,8 @@ namespace PlayerLives.Features
 
             if (Settings.REQUIRE_STIM.Value != "None")
                 ConsumeReviveItem(player);
+
+            player.ActiveHealthController.IsAlive = true;
 
             HealPlayer(player);
 
