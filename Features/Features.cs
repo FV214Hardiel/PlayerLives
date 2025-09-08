@@ -353,7 +353,7 @@ namespace PlayerLives.Features
                         {
                             if (Settings.RESTORE_ONLY_HEAD_AND_CHEST.Value)
                             {
-                                if (bodyPart != EBodyPart.Head || bodyPart != EBodyPart.Chest)
+                                if (bodyPart != EBodyPart.Head && bodyPart != EBodyPart.Chest)
                                 {
                                     continue;
                                 }
