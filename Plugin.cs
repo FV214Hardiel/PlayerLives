@@ -16,7 +16,7 @@ namespace PlayerLives
 
         private void Awake()
         {
-            // save the Logger to variable so we can use it elsewhere in the project
+            // save the Logger to variable so we can use it elsewhere in the projects
             LogSource = Logger;
             LogSource.LogInfo("Player Lives plugin loaded!");
             Settings.Init(Config);
